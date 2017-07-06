@@ -39,9 +39,9 @@ export default class Route {
     //   res.send(controller.remove(req.token, req.params.id))
     // })
 
-    // app.put('/contacts/:id',  (req: any, res: Response) => {
-    //   res.send(controller.update(req.body))
-    // })
+    app.put('/contacts/:id', (req:any, res) => {
+      res.send(this.controller.update(req.params.id, req.body));
+    });
 
     app.post('/contacts', (req: any, res) => {
       const { name, email } = req.body;

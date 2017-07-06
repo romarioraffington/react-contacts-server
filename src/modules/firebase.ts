@@ -22,7 +22,11 @@ export default class Firebase {
   }
 
   public create(contact) {
-    this.db.ref(`contacts/${contact.id}`).set({ ...contact });
+     this.db.ref(`contacts/${contact.id}`).set({ ...contact });
   }
+
+  public update(id, contact) {
+    this.db.ref(`contacts/${id}`).update({ ...contact });
   }
+
 }

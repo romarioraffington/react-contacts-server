@@ -20,20 +20,9 @@ export default class Controller {
     this.firebase.create(contact);
   }
 
-  // public update(contact) {
-  //   const data = this.get('').contacts;
-  //   const isPresent = !!data.find(c => c.id === contact.id)
-
-  //   if(isPresent) {
-  //     data.contacts = data.contacts.map(c => {
-  //       if (c.id === contact.id) {
-  //         return contact;
-  //       }
-  //       return c
-  //     });
-  //   }
-  //   return data.contacts;
-  // }
+  public update(id, contact) {
+    this.firebase.update(id, contact);
+  }
 
   // public remove(token, id)  {
   //   const data = this.get(token)
