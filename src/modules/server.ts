@@ -29,9 +29,9 @@ export default class Server {
   private middleware(): void {
     this.app.use(cors())
     this.app.use(bodyParser.json());
-    this.app.use(express.static('public'))
-    this.app.use((req: express.Request | any, res: express.Response, next: express.NextFunction) => {
-      const token = req.get('Authorization')
+    this.app.use(express.static('dist/public'))
+    this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+      const token: string = req.get('Authorization')
       if (token) {
         req.token = token;
         next();
