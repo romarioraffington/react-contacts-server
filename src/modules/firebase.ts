@@ -1,20 +1,28 @@
-import * as firebase from 'firebase';
-import { config } from '../config/firebase';
-import { contact } from './interface';
+import * as admin from 'firebase-admin';
+import { config } from '../config';
+
+const key = require('../config/firebaseKey.json'); 
 
 export default class Firebase {
-  public database;
-  
-  contructor() {
-    firebase.initializeApp(config);
-    this.database = firebase.database();
+  private db;
+  private contactsRef;
+
+  constructor() {
+    admin.initializeApp({
+      credential: admin.credential.cert(key),
+      databaseURL: config.db,
+    });
+
+    this.db = admin.database();
+    this.contactsRef = this.db.ref('contacts');
   }
 
-  public saveContact(contact: contact) {
-    firebase.database().ref(`contacts/${contact.id}`).set({
-      name: contact.name,
-      email: contact.email,
-      avatarUrl: contact.avatarUrl,
-    })
+  public getAll(): Promise<any> {
+    return this.contactsRef.once('value');
+  }
+
+  public create(contact) {
+    this.db.ref(`contacts/${contact.id}`).set({ ...contact });
+  }
   }
 }
