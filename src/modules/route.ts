@@ -9,7 +9,7 @@ export default class Route {
   }
 
   public register(app: Application) { 
-    app.get('/', (req: Request, res: Response) => {
+    app.get('/', (req, res) => {
       const help = `
         <pre>
           Welcome to the Address Book API!
@@ -29,17 +29,13 @@ export default class Route {
       res.send(help)
     });
 
-    app.get('/contacts', (req, res: Response) => {
+    app.get('/contacts', (req, res) => {
       this.controller
         .getAll()
         .then(snap => res.send(snap.val()));
     });
 
-    // app.delete('/contacts/:id', (req: any, res: Response) => {
-    //   res.send(controller.remove(req.token, req.params.id))
-    // })
-
-    app.put('/contacts/:id', (req:any, res) => {
+    app.put('/contacts/:id', (req, res) => {
       res.send(this.controller.update(req.params.id, req.body));
     });
 
@@ -53,7 +49,10 @@ export default class Route {
           error: 'Please provide both a name and email address'
         })
       }
-    })
+    });
 
+    app.delete('/contacts/:id', (req, res) => {
+      res.send(this.controller.delete(req.params.id))
+    })
   }
 } 

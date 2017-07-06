@@ -29,4 +29,7 @@ export default class Firebase {
     this.db.ref(`contacts/${id}`).update({ ...contact });
   }
 
+  public delete(id) {
+    this.db.ref(`contacts/${id}`).remove();
+  }
 }

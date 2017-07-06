@@ -24,15 +24,7 @@ export default class Controller {
     this.firebase.update(id, contact);
   }
 
-  // public remove(token, id)  {
-  //   const data = this.get(token)
-  //   const contact = data.contacts.find(c => c.id === id)
-
-  //   if (contact) {
-  //     data.contacts = data.contacts.filter(c => c !== contact)
-  //   }
-  //   return { 
-  //     contact 
-  //   }
-  // }
+  public delete(id) {
+    this.firebase.delete(id);
+  }
 }
