@@ -33,7 +33,7 @@ export default class Server {
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       const token: string = req.get('Authorization')
       if (token) {
-        req.token = token;
+        req['token'] = token;
         next();
       } else {
         res.status(403).send({
