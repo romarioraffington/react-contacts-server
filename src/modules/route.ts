@@ -2,11 +2,13 @@ import { Application, Request, Response } from 'express';
 import Controller from './controller';
 
 export default class Route {
+  private controller; 
 
-  public register(app: Application) {
+  constructor() {
+   this.controller = new Controller();
+  }
 
-    const controller = new Controller();
-
+  public register(app: Application) { 
     app.get('/', (req: Request, res: Response) => {
       const help = `
         <pre>
@@ -27,23 +29,25 @@ export default class Route {
       res.send(help)
     });
 
-    app.get('/contacts', (req: any, res: Response) => {
-      res.send(controller.get(req.token));
+    app.get('/contacts', (req, res: Response) => {
+      this.controller
+        .getAll()
+        .then(snap => res.send(snap.val()));
     });
 
-    app.delete('/contacts/:id', (req: any, res: Response) => {
-      res.send(controller.remove(req.token, req.params.id))
-    })
+    // app.delete('/contacts/:id', (req: any, res: Response) => {
+    //   res.send(controller.remove(req.token, req.params.id))
+    // })
 
-    app.put('/contacts/:id',  (req: any, res: Response) => {
-      res.send(controller.update(req.body))
-    })
+    // app.put('/contacts/:id',  (req: any, res: Response) => {
+    //   res.send(controller.update(req.body))
+    // })
 
-    app.post('/contacts', (req: any, res: Response) => {
-      const { name, email } = req.body
-
+    app.post('/contacts', (req: any, res) => {
+      const { name, email } = req.body;
+      
       if (name && email) {
-        res.send(controller.add(req.token, req.body))
+        res.send(this.controller.create(req.token, req.body))
       } else {
         res.status(403).send({
           error: 'Please provide both a name and email address'
