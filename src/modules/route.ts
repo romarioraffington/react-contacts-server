@@ -21,9 +21,9 @@ export default class Route {
           The following endpoints are available:
 
           GET /contacts
-          DELETE /contacts/:id
           PUT /contacts/:id { name, email, avatarURL }
           POST /contacts { name, email, avatarURL }
+          DELETE /contacts/:id
         </pre>`
 
       res.send(help)
