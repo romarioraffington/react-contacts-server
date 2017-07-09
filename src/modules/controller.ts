@@ -13,18 +13,18 @@ export default class Controller {
     return this.firebase.getAll();
   }
 
-  public create(token, contact) {
+  public create(token: string, contact: contact): void {
     if (!contact.id) {
       contact.id = Math.random().toString(36).substr(-8)
     }
     this.firebase.create(contact);
   }
 
-  public update(id, contact) {
+  public update(id: string, contact: contact): void {
     this.firebase.update(id, contact);
   }
 
-  public delete(id) {
+  public delete(id: string): void {
     this.firebase.delete(id);
   }
 }

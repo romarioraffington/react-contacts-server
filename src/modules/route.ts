@@ -8,8 +8,8 @@ export default class Route {
    this.controller = new Controller();
   }
 
-  public register(app: Application) { 
-    app.get('/', (req, res) => {
+  public register(app: Application): void { 
+    app.get('/', (req: Request, res: Response) => {
       const help = `
         <pre>
           Welcome to the Address Book API!
@@ -29,21 +29,21 @@ export default class Route {
       res.send(help)
     });
 
-    app.get('/contacts', (req, res) => {
+    app.get('/contacts', (req: Request, res: Response) => {
       this.controller
         .getAll()
         .then(snap => res.send(snap.val()));
     });
 
-    app.put('/contacts/:id', (req, res) => {
+    app.put('/contacts/:id', (req: Request, res: Response) => {
       res.send(this.controller.update(req.params.id, req.body));
     });
 
-    app.post('/contacts', (req: any, res) => {
-      const { name, email } = req.body;
+    app.post('/contacts', (req: Request, res: Response) => {
+      const { name, email } = req['body'];
       
       if (name && email) {
-        res.send(this.controller.create(req.token, req.body))
+        res.send(this.controller.create(req['token'], req['body']))
       } else {
         res.status(403).send({
           error: 'Please provide both a name and email address'
@@ -51,7 +51,7 @@ export default class Route {
       }
     });
 
-    app.delete('/contacts/:id', (req, res) => {
+    app.delete('/contacts/:id', (req: Request, res: Response) => {
       res.send(this.controller.delete(req.params.id))
     })
   }
