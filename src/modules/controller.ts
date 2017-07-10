@@ -27,7 +27,7 @@ export default class Controller {
 
   public create(token: string, contact: contact): void {
     if (!contact.id) {
-      contact.id = Math.random().toString(36).substr(-8)
+      contact.id = Math.random().toString(36).substr(-8);
     }
     this.firebase.create(this.checkAvatarUrl(contact));
   }
@@ -42,7 +42,7 @@ export default class Controller {
 
   private checkAvatarUrl(contact: contact): contact {
     const avatars = ['bulbasaur.png', 'charmander.png', 'pikachu.png'];
-    const randomNumber = Math.floor(Math.random() * 3)
+    const randomNumber = Math.floor(Math.random() * 3);
 
     if (!contact.avatarUrl) {
       contact.avatarUrl = `${config.origin}/${avatars[randomNumber]}`;
