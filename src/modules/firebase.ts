@@ -34,8 +34,17 @@ export default class Firebase {
      });
   }
 
-  public update(id, contact) {
-    this.db.ref(`contacts/${id}`).update({ ...contact });
+  public update(id, contact): Promise<any> {
+    return new Promise<any>(resolve => {
+      const data = {
+        contact: contact,
+        error: {},
+      }
+      this.db.ref(`contacts/${id}`).update({ ...contact }, error => {
+        data.error = error;
+        resolve(data);
+      });
+    })
   }
 
   public delete(id) {

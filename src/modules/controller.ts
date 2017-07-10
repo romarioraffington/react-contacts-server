@@ -32,8 +32,8 @@ export default class Controller {
    return this.firebase.create(this.checkAvatarURL(contact));
   }
 
-  public update(id: string, contact: contact): void {
-    this.firebase.update(id, this.checkAvatarURL(contact));
+  public update(id: string, contact: contact): Promise <any> {
+    return this.firebase.update(id, this.checkAvatarURL(contact));
   }
 
   public delete(id: string): void {

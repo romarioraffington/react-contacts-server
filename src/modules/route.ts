@@ -36,7 +36,10 @@ export default class Route {
     });
 
     app.put('/contacts/:id', (req: Request, res: Response) => {
-      res.send(this.controller.update(req.params.id, req.body));
+      this.controller.update(req.params.id, req.body).then(data => {
+        const status = data.error ? 400 : 200;
+        res.status(status).send(data);
+      });
     });
 
     app.post('/contacts', (req: Request, res: Response) => {
