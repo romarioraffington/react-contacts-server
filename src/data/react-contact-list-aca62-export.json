@@ -1,33 +1,34 @@
 {
-  "contacts" : {
-    "khaled" : {
-      "avatarURL" : "http://localhost/images/khaled.jpg",
-      "email" : "khaled@wethebestmusic.com",
-      "name" : "DJ Khaled"
+  "contacts": {
+    "khaled": {
+      "id": "khaled",
+      "avatarURL": "http://localhost:5001/images/khaled.jpg",
+      "email": "khaled@wethebestmusic.com",
+      "name": "DJ Khaled"
     },
-    "mark" : {
-      "avatarURL" : "http/images/mark.jpg",
-      "email" : "thezucks@facebook.com",
-      "id" : "mark",
-      "name" : "Mark Zuckerberg"
+    "mark": {
+      "avatarURL": "http://localhost:5001/images/mark.jpg",
+      "email": "thezucks@facebook.com",
+      "id": "mark",
+      "name": "Mark Zuckerberg"
     },
-    "romario" : {
-      "avatarURL" : "http://localhost//images/romario.jpg",
-      "email" : "romarioraff@gmail.com",
-      "id" : "romario",
-      "name" : "Romario Raffington"
+    "romario": {
+      "avatarURL": "http://localhost:5001/images/romario.jpg",
+      "email": "romarioraff@gmail.com",
+      "id": "romario",
+      "name": "Romario Raffington"
     },
-    "steve" : {
-      "avatarURL" : "http://localhost//images/steve.jpg",
-      "email" : "steve@apple.com",
-      "id" : "steve",
-      "name" : "Steve Jobs"
+    "steve": {
+      "avatarURL": "http://localhost:5001/images/steve.jpg",
+      "email": "steve@apple.com",
+      "id": "steve",
+      "name": "Steve Jobs"
     },
-    "usain" : {
-      "avatarUrl" : "http://localhost//images/usain.jpg",
-      "email" : "usain@bolt.com",
-      "id" : "usain",
-      "name" : "Usain Bolt"
+    "usain": {
+      "avatarUrl": "http://localhost:5001/images/usain.jpg",
+      "email": "usain@bolt.com",
+      "id": "usain",
+      "name": "Usain Bolt"
     }
   }
 }
