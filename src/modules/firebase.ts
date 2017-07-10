@@ -21,7 +21,7 @@ export default class Firebase {
     return this.contactsRef.once('value');
   }
 
-  public create(contact) {
+  public create(contact): Promise<any> {
     return new Promise<any>(resolve => {
       const data = {
         contact: contact,
