@@ -18,7 +18,7 @@ export default class Controller {
     // into an Array
     return new Promise<contact[]>((resolve) => { 
       const contacts: contact[] = [];
-      _.forIn(snap.val(), (c: contact, id: string) => {
+      _.forIn(snap.val(), (c: contact) => {
         contacts.push(c);
       });
       resolve(contacts);
