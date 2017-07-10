@@ -45,7 +45,7 @@ export default class Controller {
     const randomNumber = Math.floor(Math.random() * 3);
 
     if (!contact.avatarURL) {
-      contact.avatarURL = `${config.origin}/${avatars[randomNumber]}`;
+      contact.avatarURL = `${config.origin}/images/${avatars[randomNumber]}`;
     }
     return contact;
   }
