@@ -29,18 +29,18 @@ export default class Controller {
     if (!contact.id) {
       contact.id = Math.random().toString(36).substr(-8);
     }
-    this.firebase.create(this.checkAvatarUrl(contact));
+    this.firebase.create(this.checkAvatarURL(contact));
   }
 
   public update(id: string, contact: contact): void {
-    this.firebase.update(id, this.checkAvatarUrl(contact));
+    this.firebase.update(id, this.checkAvatarURL(contact));
   }
 
   public delete(id: string): void {
     this.firebase.delete(id);
   }
 
-  private checkAvatarUrl(contact: contact): contact {
+  private checkAvatarURL(contact: contact): contact {
     const avatars = ['bulbasaur.png', 'charmander.png', 'pikachu.png'];
     const randomNumber = Math.floor(Math.random() * 3);
 
