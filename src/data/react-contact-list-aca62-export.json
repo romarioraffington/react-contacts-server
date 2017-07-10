@@ -25,7 +25,7 @@
       "name": "Steve Jobs"
     },
     "usain": {
-      "avatarUrl": "http://localhost:5001/images/usain.jpg",
+      "avatarURL": "http://localhost:5001/images/usain.jpg",
       "email": "usain@bolt.com",
       "id": "usain",
       "name": "Usain Bolt"
