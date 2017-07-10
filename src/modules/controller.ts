@@ -44,8 +44,8 @@ export default class Controller {
     const avatars = ['bulbasaur.png', 'charmander.png', 'pikachu.png'];
     const randomNumber = Math.floor(Math.random() * 3);
 
-    if (!contact.avatarUrl) {
-      contact.avatarUrl = `${config.origin}/${avatars[randomNumber]}`;
+    if (!contact.avatarURL) {
+      contact.avatarURL = `${config.origin}/${avatars[randomNumber]}`;
     }
     return contact;
   }
