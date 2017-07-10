@@ -27,9 +27,9 @@ export default class Server {
   }
 
   private middleware(): void {
+    this.servePublic();
     this.app.use(cors())
     this.app.use(bodyParser.json());
-    this.app.use(express.static('dist/public'))
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       const token: string = req.get('Authorization')
       if (token) {
@@ -46,5 +46,13 @@ export default class Server {
   private api(): void {
     const route = new Route();
     route.register(this.app);
+  }
+
+  private servePublic() {
+    if(process.env.NODE_ENV === 'production') {
+      this.app.use(express.static('dist/public'));
+    } else {
+      this.app.use(express.static('src/public'));
+    }
   }
 }
