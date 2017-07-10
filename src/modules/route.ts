@@ -32,7 +32,7 @@ export default class Route {
     app.get('/contacts', (req: Request, res: Response) => {
       this.controller
         .getAll()
-        .then(snap => res.send(snap.val()));
+        .then(contacts => res.send(contacts));
     });
 
     app.put('/contacts/:id', (req: Request, res: Response) => {

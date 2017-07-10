@@ -1,4 +1,5 @@
 import * as clone from 'clone'
+import * as _ from 'lodash';
 import Firebase from './firebase';
 import { config } from '../config';
 import { contact } from './interface';
@@ -10,8 +11,18 @@ export default class Controller {
     this.firebase = new Firebase();
   }
 
-  public getAll(): Promise<any> {
-    return this.firebase.getAll();
+  public async getAll(): Promise<contact[]> {
+    const snap = await this.firebase.getAll();
+
+    // Convert Object(s) returned from Firebase
+    // into an Array
+    return new Promise<contact[]>((resolve) => { 
+      const contacts: contact[] = [];
+      _.forIn(snap.val(), (c: contact, id: string) => {
+        contacts.push(c);
+      });
+      resolve(contacts);
+    });
   }
 
   public create(token: string, contact: contact): void {
