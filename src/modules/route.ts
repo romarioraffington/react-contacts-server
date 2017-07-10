@@ -43,7 +43,10 @@ export default class Route {
       const { name, email } = req['body'];
       
       if (name && email) {
-        res.send(this.controller.create(req['token'], req['body']))
+        this.controller.create(req['token'], req['body']).then(data => {
+          const status = data.error ? 400 : 200;
+          res.status(status).send(data);
+        });
       } else {
         res.status(403).send({
           error: 'Please provide both a name and email address'

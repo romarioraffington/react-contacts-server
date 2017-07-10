@@ -16,7 +16,7 @@ export default class Controller {
 
     // Convert Object(s) returned from Firebase
     // into an Array
-    return new Promise<contact[]>((resolve) => { 
+    return new Promise<contact[]>(resolve => { 
       const contacts: contact[] = [];
       _.forIn(snap.val(), (c: contact) => {
         contacts.push(c);
@@ -25,11 +25,11 @@ export default class Controller {
     });
   }
 
-  public create(token: string, contact: contact): void {
+  public create(token: string, contact: contact): Promise<any> {
     if (!contact.id) {
       contact.id = Math.random().toString(36).substr(-8);
     }
-    this.firebase.create(this.checkAvatarURL(contact));
+   return this.firebase.create(this.checkAvatarURL(contact));
   }
 
   public update(id: string, contact: contact): void {

@@ -22,7 +22,16 @@ export default class Firebase {
   }
 
   public create(contact) {
-     this.db.ref(`contacts/${contact.id}`).set({ ...contact });
+    return new Promise<any>(resolve => {
+      const data = {
+        contact: contact,
+        error: {},
+      }
+      this.db.ref(`contacts/${contact.id}`).set({ ...contact }, error => {
+        data.error = error;
+        resolve(data);
+      });
+     });
   }
 
   public update(id, contact) {
