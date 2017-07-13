@@ -1,8 +1,6 @@
 import * as admin from 'firebase-admin';
 import { config } from '../config';
 
-const key = require('../config/firebaseKey.json');
-
 export default class Firebase {
   private db;
   private contactsRef;
@@ -19,7 +17,7 @@ export default class Firebase {
       });
     } else {
       admin.initializeApp({
-        credential: admin.credential.cert(key),
+        credential: admin.credential.cert( require('../config/firebaseKey.json')),
         databaseURL: config.db.url,
       });
     }
