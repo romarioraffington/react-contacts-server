@@ -37,7 +37,7 @@ export default class Controller {
   }
 
   public delete(id: string): void {
-    this.firebase.delete(id);
+    return this.firebase.delete(id);
   }
 
   private checkAvatarURL(contact: contact): contact {

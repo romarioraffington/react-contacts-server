@@ -48,6 +48,6 @@ export default class Firebase {
   }
 
   public delete(id) {
-    this.db.ref(`contacts/${id}`).remove();
+    return this.db.ref(`contacts/${id}`).remove();
   }
 }
