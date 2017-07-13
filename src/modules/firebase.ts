@@ -1,17 +1,28 @@
 import * as admin from 'firebase-admin';
 import { config } from '../config';
 
-const key = require('../config/firebaseKey.json'); 
+const key = require('../config/firebaseKey.json');
 
 export default class Firebase {
   private db;
   private contactsRef;
 
   constructor() {
-    admin.initializeApp({
-      credential: admin.credential.cert(key),
-      databaseURL: config.db,
-    });
+    if (config.env === 'production') {
+      admin.initializeApp({
+        credential: admin.credential.cert({
+          projectId: config.db.projectId,
+          clientEmail: config.db.clientEmail,
+          privateKey: config.db.privateKey,
+        }),
+        databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
+      });
+    } else {
+      admin.initializeApp({
+        credential: admin.credential.cert(key),
+        databaseURL: config.db.url,
+      });
+    }
 
     this.db = admin.database();
     this.contactsRef = this.db.ref('contacts');
@@ -31,7 +42,7 @@ export default class Firebase {
         data.error = error;
         resolve(data);
       });
-     });
+    });
   }
 
   public update(id, contact): Promise<any> {
