@@ -58,7 +58,9 @@ export default class Route {
     });
 
     app.delete('/contacts/:id', (req: Request, res: Response) => {
-      res.send(this.controller.delete(req.params.id))
+      this.controller.delete(req.params.id)
+        .then(() => res.sendStatus(204))
+        .catch(error => res.status(400).send(error));
     })
   }
 } 
