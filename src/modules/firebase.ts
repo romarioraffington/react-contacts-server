@@ -13,7 +13,7 @@ export default class Firebase {
           clientEmail: config.db.clientEmail,
           privateKey: config.db.privateKey,
         }),
-        databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
+        databaseURL: config.db.url,
       });
     } else {
       admin.initializeApp({
