@@ -11,8 +11,8 @@ gulp.task('scripts', () => {
 
 // Assets 
 gulp.task('assets', function() {
-  return gulp.src('src/public')
-  .pipe(gulp.dest('dist'));
+  return gulp.src('src/public/images/*')
+  .pipe(gulp.dest('dist/public'));
 });
 
 gulp.task('watch', ['scripts'], () => {
