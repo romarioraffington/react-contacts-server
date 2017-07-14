@@ -28,6 +28,6 @@
     "build:live": "nodemon --exec ts-node ./src/app.ts",
     "start": "npm run build:live",
     "start:prod": "npm run build:prod && pm2 start ./dist/app.js",
-    "test": ""
+    "test": "exit 0"
   }
 }
