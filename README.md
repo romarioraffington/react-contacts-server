@@ -1,6 +1,8 @@
-# Server for the React Contact List [#](https://github.com/romarioraffington/react-contact-list) 
+# React Contact List Server 
 
-This is a backend server for the React Contact List project. The backend is written in [TypeScript](https://www.typescriptlang.org/) and the data is persisted with [Firebase](https://firebase.google.com/). 
+[![Build Status](https://travis-ci.org/romarioraffington/react-contacts-server.svg?branch=master)](https://travis-ci.org/romarioraffington/react-contacts-server)
+
+This is a backend server for the [React Contact List](https://github.com/romarioraffington/react-contact-list)  project. The backend is written in [TypeScript](https://www.typescriptlang.org/) and the data is persisted with [Firebase](https://firebase.google.com/). 
 
 View the live demo [here](#).
 
@@ -25,10 +27,10 @@ $ yarn start
 ```
 
 ## Running the App in Production
-**Note:** The `PROJECT_ID`, `CLIENT_EMAIL` and `PRIVATE_KEY` environment variables should be set. You can find this in the `firebaseKey.json` 
+The `PROJECT_ID`, `CLIENT_EMAIL` and `PRIVATE_KEY` environment variables should be set. You can find this in the `firebaseKey.json` 
 
 ```shell
-# npm start:prod
+# npm run start:prod
 $ yarn start:prod
 ```
 
