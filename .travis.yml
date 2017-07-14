@@ -5,11 +5,6 @@ cache:
   yarn: true
   directories:
     - node_modules
-after_success:
-  - yarn build
-before_deploy:
-  - ls
-  - cd dist
 deploy:
   provider: heroku
   skip_cleanup: true
