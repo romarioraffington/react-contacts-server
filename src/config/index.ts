@@ -8,6 +8,6 @@ export const config = {
     // Only needed when running the app from the ./dist folder (e.g production)
     projectId: process.env.PROJECT_ID,
     clientEmail: process.env.CLIENT_EMAIL,
-    privateKey: process.env.PRIVATE_KEY,
+    privateKey: process.env.PRIVATE_KEY
   }
 }
