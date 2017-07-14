@@ -8,6 +8,7 @@ cache:
 after_success:
   - yarn build
 before_deploy:
+  - ls
   - cd dist
 deploy:
   provider: heroku
