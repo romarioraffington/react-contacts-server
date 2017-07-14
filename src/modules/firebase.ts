@@ -6,7 +6,7 @@ export default class Firebase {
   private contactsRef;
 
   constructor() {
-    if (config.env === 'production') {
+    if (config.env !== 'development') {
       admin.initializeApp({
         credential: admin.credential.cert({
           projectId: config.db.projectId,
