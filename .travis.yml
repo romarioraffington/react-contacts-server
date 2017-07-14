@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- 6
+cache:
+  yarn: true
+  directories:
+    - node_modules
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  api_key:
+    secure: 4+L8nODv7XMAEXNXDM2atHg2LqkuIgtx71oJ9XAOOWW7OcNyCnbxKH3d8xEmwbju0DDOy1rNmGewOpneofnqAvMs7egQTul7xEnC3WXlRoLd2PVQivo+XVaVugOaPMBQs7ELFmQ3/21RfTD6Acre0Kmt2gTIK2AhpP0iQVY9KxkUI+9fnObMYkA7dV1vaPcOyO8EvjCdRTATVyqU+96tdnc5DmfHaZ5oaWIDWKynY32DMr2uoI8fMt0i0me2fpaCzkQCtXV6iME6YyHts+2WV+Ntk4YSCHoM1DCLOem89Qp8LhsYZiMLGeVdZJ+pYu9YYrMbNzh2nORRPLK3C/O8qI/YyFhb5IW5LWRzjWMxAhPInTjnyyM8cmZ+aIc6bLwgiK4Y2qi/NowSfNOPsrl7R3FDaungR/BFddSNFBrYd2MieN+0GiEG9p11fRLJ+iuLIge6w0eeO015Z111RKEaHbI2PXCZ3htQIS3wr5tvsVb8J3JeGJg46lgIcXuQ4LTXflMdHiY9Ty0SFwCgFpYHkgjOlBsOgpRh6Wf6vhE1N83ivjJlM3lzmrrW8yy6h/6ky7odjbdfEe09RwJ2fKdsvniaiiJMSaoIx8Max9tL0v8lTtS4AwQ1xmGh0sWuZ/byBev8WVv+NQv7U1Pal6uMxJM9xsUy1nOVa0c6BJvsOx4=
+after_deploy: 
+  - yarn build:prod
