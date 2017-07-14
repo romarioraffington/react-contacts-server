@@ -5,7 +5,7 @@ cache:
   yarn: true
   directories:
     - node_modules
-after_succes:
+after_success:
   - yarn build
 before_deploy:
   - cd dist
