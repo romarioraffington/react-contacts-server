@@ -18,13 +18,13 @@ $ git clone https://github.com/romarioraffington/react-contacts-server.git
 
 5. (Optional) Import the dataset provided in `./src/data` into the database.
 
-## Running the app 
+## Running the App 
 ```shell
 # npm start
 $ yarn start 
 ```
 
-## Running the app in production
+## Running the App in Production
 **Note:** The `PROJECT_ID`, `CLIENT_EMAIL` and `PRIVATE_KEY` environment variables should be set. You can find this in the `firebaseKey.json` 
 
 ```shell
