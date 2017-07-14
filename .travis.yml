@@ -5,10 +5,14 @@ cache:
   yarn: true
   directories:
     - node_modules
+after_succes:
+  - yarn build
+before_deploy:
+  - cd dist
 deploy:
   provider: heroku
   skip_cleanup: true
   api_key:
     secure: Q4KWDlP6we7paMmSHEbb2K1H8X1oBbx1kPfB5yQntF0aTrZhZsORWYABZRYWnZoSwEhXZqKYSpLZy0A3UaqBD0H3p2mmFWQ2wGkkMBImYj0hOwSmBwf+jF5kWBKdikWWrXwGnNsR99mdDFXkpbpY4zxSsqGZstwAR+sFG196L56Mk9+od+OZ0qyycD/qM0KpeVi+elEzBQXwkk/uPcRhpVeSVZ2ZaUhKJ8QDW/SZLFhUItkLxF0mR0m3YGocCq5VY73fd8MFgK5JDn4DiNRE6FFZFJFxTmBRTYJivBr/d3nU+q7Dd3k8ESlrHZFUwR2ofQzBCSiygmLr6fAUHlY3kPAP0v7xKfduHy/R03w2wq7dRIq3ybrGfYYjUGWe44X8bxlAjF9atrQvIQkq8Tx3FuZnNulK1bbBBiondzoQyt9KKb7mXB7Ix5RL5d6+uoG06jNyj5uN1dRHrhpN5r+0WKmSRz+Ko0SjiEuejT3QOLl+mU+ZmyMD+QO0oiRDn80sq+LkBtim3RCV8v+QX+9sapFEaa6MJ4WSFtwVDMPahBmfy15Gb+vj+P+zxnJiPc158QIm190yy3UnHdTNWb0/RV8g/GmYGjNd3BG7tNIywQ6JGEgPh2ymyadcR1zVQXkYsMhVjKVV+5jJyXObtKrcr6Nqq+lZFLVgFwPo16ILqWU=
 after_deploy:
-  - yarn start
+  - yarn start:prod
