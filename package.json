@@ -18,7 +18,7 @@
     "@types/lodash": "^4.14.68",
     "@types/node": "^8.0.7",
     "gulp": "^3.9.1",
-    "gulp-typescript": "^3.1.7",
+    "gulp-typescript": "^3.2.0",
     "nodemon": "^1.11.0",
     "ts-node": "^3.1.0",
     "typescript": "^2.4.1"
@@ -27,6 +27,7 @@
     "build:prod": "gulp",
     "build:live": "nodemon --exec ts-node ./src/app.ts",
     "start": "npm run build:live",
-    "start:prod": "npm run build:prod && pm2 start ./dist/app.js"
+    "start:prod": "npm run build:prod && pm2 start ./dist/app.js",
+    "test": ""
   }
 }

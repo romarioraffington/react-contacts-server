@@ -1016,9 +1016,9 @@ gulp-sourcemaps@1.6.0:
     through2 "^2.0.0"
     vinyl "^1.0.0"
 
-gulp-typescript@^3.1.7:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.1.7.tgz#d88600a914153f11c09c9a5ca8c2561ec75a4978"
+gulp-typescript@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-3.2.0.tgz#8ddf7be658d130188381f65a6e580c552b64c196"
   dependencies:
     gulp-util "~3.0.7"
     source-map "~0.5.3"
@@ -1258,10 +1258,10 @@ is-number@^3.0.0:
     kind-of "^3.0.2"
 
 is-plain-object@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.3.tgz#c15bf3e4b66b62d72efaf2925848663ecbc619b6"
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
   dependencies:
-    isobject "^3.0.0"
+    isobject "^3.0.1"
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
@@ -1333,7 +1333,7 @@ isobject@^2.0.0, isobject@^2.1.0:
   dependencies:
     isarray "1.0.0"
 
-isobject@^3.0.0:
+isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
