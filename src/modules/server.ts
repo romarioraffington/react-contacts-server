@@ -31,6 +31,11 @@ export default class Server {
     this.app.use(cors())
     this.app.use(bodyParser.json());
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+
+    // Do not authenticate if the route is '/'
+    if (req.originalUrl === '/') {
+      next();
+    } else {
       const token: string = req.get('Authorization')
       if (token) {
         req['token'] = token;
@@ -40,7 +45,8 @@ export default class Server {
           error: 'Please provide an Authorization header to identify yourself (can be whatever you want)'
         });
       }
-    });
+    }
+  });
   }
 
   private api(): void {
