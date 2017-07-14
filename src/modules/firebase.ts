@@ -11,7 +11,7 @@ export default class Firebase {
         credential: admin.credential.cert({
           projectId: config.db.projectId,
           clientEmail: config.db.clientEmail,
-          privateKey: config.db.privateKey,
+          privateKey: JSON.parse(config.db.privateKey),
         }),
         databaseURL: config.db.url,
       });

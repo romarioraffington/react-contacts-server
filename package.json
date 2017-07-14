@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/app.ts",
     "build": "gulp",
-    "start": "yarn build && pm2 start ./dist/app.js",
+    "start": "yarn build && node ./dist/app.js",
     "test": "exit 0"
   }
 }
